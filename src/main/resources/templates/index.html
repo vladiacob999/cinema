@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cinema Movies</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <meta charset="utf-8">
+
+</head>
+
+
+<body>
+<div class="container my-2">
+
+    <h1> Movie List</h1>
+    <a th:href="@{/addNewMovie}" class="btn btn-primary btn-sm mb-3"> Add Movie </a>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+
+            <th> Image </th>
+            <th> Movie Title</th>
+            <th> Genre </th>
+            <th> Length </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="movie : ${listMovies}">
+                <td>
+                <td th:text="${movie.movieTitle}"></td>
+                <td th:text="${movie.movieGenre}"></td>
+                <td th:text="${movie.length}"></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
