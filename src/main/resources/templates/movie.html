@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+
+<div class="d-flex justify-content-center" style="padding-top: 30px;">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Movie Details</h5>
+            <p><b>Movie Title: </b><span th:text="${movie.movieTitle}"></span></p>
+            <p><b>Genre:</b> <span th:text="${movie.movieGenre}"></span></p>
+            <p><b>Cast:</b> <span th:text="${movie.cast}"></span></p>
+            <p><b>Director:</b> <span th:text="${movie.director}"></span></p>
+            <p><b>Year of Release:</b> <span th:text="${movie.yearRelease}"></span></p>
+            <p><b>Length:</b> <span th:text="${movie.length}"></span></p>
+            <p><b>Description:</b> <span th:text="${movie.description}"></span></p>
+            <p><b>Rating:</b> <span th:text="${movie.imdbRating}"></span></p>
+
+
+            <a class="btn btn-secondary" href="/index">Back</a>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

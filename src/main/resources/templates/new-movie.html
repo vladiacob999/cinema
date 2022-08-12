@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
     <div class="container">
     <h1>ADD A NEW MOVIE</h1>
         <hr>
@@ -32,13 +33,16 @@
 
             <input type="text" th:field="*{imdbRating}" placeholder="Rating" class="form-control mb-4 col-4">
 
-            <button type="submit" class="btn btn-info col-2"> Save Movie</button>
+            <a href="/index">
+                <input type="submit"/>
+            </a>
         </form>
     <hr>
 
-        <form action="@{/}">
-            <button type="button" class="button1" th:onclick="|window.location.href='/'|"> Back to Movie List</button>
+        <form action="@{/index}">
+            <button type="button" class="button1" th:onclick="|window.location.href='/index'|"> Back to Movie List</button>
         </form>
+    </div>
 </div>
 
     </body>

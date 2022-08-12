@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ro.itschool.entity.Movie;
+import ro.itschool.repository.MovieRepository;
 import ro.itschool.service.MovieService;
 
 import java.io.*;
@@ -27,15 +28,14 @@ import java.util.logging.Logger;
 public class MovieController {
 
 
-
-
-
     @Autowired
     private MovieService movieService;
 
+    @Autowired
+    private MovieRepository movieRepository;
 
     //afisam lista de filme
-    @GetMapping("/")
+    @GetMapping("/index")
     public String viewHomePage(Model model){
         model.addAttribute("listMovies", movieService.getAllMovies());
         return "index";
@@ -54,7 +54,14 @@ public class MovieController {
     public String saveMovie(@ModelAttribute("movie") Movie movie){
         //save movie to database
         movieService.saveMovie(movie);
-        return "redirect:/";
+        return "redirect:/index";
+    }
+
+
+    @GetMapping("/movie/{id}")
+    public String movie(@PathVariable Long id, Model model) {
+        model.addAttribute("movie", movieRepository.findById(id).get());
+        return "movie";
     }
 
 
