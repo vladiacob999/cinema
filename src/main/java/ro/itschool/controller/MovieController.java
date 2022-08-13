@@ -64,6 +64,12 @@ public class MovieController {
         return "movie";
     }
 
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable("id") Long id){
+        movieRepository.deleteById(id);
+        return "redirect:/index";
+    }
+
 
 
 

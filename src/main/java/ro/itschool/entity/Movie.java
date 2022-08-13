@@ -13,11 +13,11 @@ public class Movie {
     private Long id;
 
     @Column(nullable = false)
-
     private String movieTitle;
 
     @Column(nullable = false)
     private String movieGenre;
+
 
     @Column(nullable = false)
     private String cast;
@@ -31,8 +31,10 @@ public class Movie {
     @Column(nullable = false)
     private String length;
 
+
     @Column(nullable = false)
     private String description;
+
 
     @Column(nullable = false)
     private String imdbRating;

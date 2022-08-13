@@ -37,16 +37,20 @@
             <th> Genre </th>
             <th> Length </th>
             <th> More </th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
             <tr th:each="movie : ${listMovies}">
-
                 <td width ="300px%" th:text="${movie.movieTitle}"></td>
-                <td th:text="${movie.movieGenre}"></td>
-                <td th:text="${movie.length}"></td>
-                <td><a class="btn btn-primary" th:href="@{/movie/{id}(id=${movie.id})}">View</a></td>
+                <td width ="300px%" th:text="${movie.movieGenre}"></td>
+                <td width ="300px%" th:text="${movie.length}"></td>
+                <td width ="300px%"><a class="btn btn-primary" th:href="@{/movie/{id}(id=${movie.id})}">View</a></td>
 
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <td width ="10px%"><a th:href="@{/deleteMovie/{id}(id=${movie.id})}"
+                        class="btn btn-danger">Delete</a></td>
+                </div>
             </tr>
 
 
