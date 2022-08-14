@@ -1,6 +1,7 @@
 package ro.itschool.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -39,20 +40,23 @@ public class Movie {
     @Column(nullable = false)
     private String imdbRating;
 
-    @Lob
-    @Column(length = 45, nullable = true)
-    private String image;
+    @Column(nullable = true, length = 64)
+    private String photos;
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null);
 
-
-    //   ---------------------------------------------------------------
-
-
-    public String getImage() {
-        return image;
+        return "/movie-photos/" + id + "/" + photos;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+//   ---------------------------------------------------------------
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
     public Long getId() {
