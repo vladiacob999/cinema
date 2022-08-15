@@ -46,10 +46,20 @@ public class Movie {
     public String getPhotosImagePath() {
         if (photos == null);
 
+
         return "/movie-photos/" + id + "/" + photos;
     }
 
-//   ---------------------------------------------------------------
+    private String movieURL;
+
+    public String getMovieURL() {
+        return movieURL;
+    }
+
+    public void setMovieURL(String movieURL) {
+        this.movieURL = movieURL;
+    }
+    //   ---------------------------------------------------------------
 
     public String getPhotos() {
         return photos;

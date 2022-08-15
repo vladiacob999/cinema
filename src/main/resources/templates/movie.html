@@ -1,26 +1,54 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:height="http://www.w3.org/1999/xhtml">
 <head>
+
     <title>Movie</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           rel="stylesheet">
+
 </head>
+<style>
+    Body {
+    height: 100%;
+    margin: 0;
+    background-image: url("https://i.ibb.co/qnqFGWd/fundal.png");
+    background-repeat: repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: fixed; }
+
+
+</style>
 <body>
 
 <div class="d-flex justify-content-center" style="padding-top: 30px;">
-    <div class="card" style="width: 80rem;">
-        <div class="card-body">
-            <h5 class="card-title text-center">Movie Details</h5>
-            <p><b>Movie Title: </b><span th:text="${movie.movieTitle}"></span></p>
-            <p><b>Genre:</b> <span th:text="${movie.movieGenre}"></span></p>
-            <p><b>Cast:</b> <span th:text="${movie.cast}"></span></p>
-            <p><b>Director:</b> <span th:text="${movie.director}"></span></p>
-            <p><b>Year of Release:</b> <span th:text="${movie.yearRelease}"></span></p>
-            <p><b>Length:</b> <span th:text="${movie.length}"></span></p>
-            <p><b>Description:</b> <span th:text="${movie.description}"></span></p>
-            <p><b>Rating:</b> <span th:text="${movie.imdbRating}"></span></p>
+    <div class="w3-container w3-red">
+        <div class="card-body" style="margin-left:5em;margin-right:5em;">
+            <p style="color:white;font-size:300%;"><b><span th:text="${movie.movieTitle}"></span></b></p>
 
+            <div class="row">
+                <div class="column">
+                    <td><img th:src="${movie.photosImagePath}" class="img-round"
+                             style="margin-left:1em;margin-right:1em;" width="264" height="410"/></td>
+                </div>
+
+                <div class="column">
+                    <iframe width="750" height="410" th:src="${movie.movieURL}" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <p style="color:white;"><b>Genre:</b> <span th:text="${movie.movieGenre}"></span></p>
+            <p style="color:white;width:900px; word-wrap:break-word;"><b>Cast:</b> <span th:text="${movie.cast}"></span></p>
+            <p style="color:white;"><b>Director:</b> <span th:text="${movie.director}"></span></p>
+            <p style="color:white;"><b>Year of Release:</b> <span th:text="${movie.yearRelease}"></span></p>
+            <p style="color:white;"><b>Length:</b> <span th:text="${movie.length}"></span></p>
+            <p style="color:white;width:900px; word-wrap:break-word;"><b>Description:</b> <span th:text="${movie.description}"></span></p>
+            <p style="color:white;"><b>Rating:</b> <span th:text="${movie.imdbRating}"></span> <span>&#11088;</span>
+
+            </p>
 
             <a class="btn btn-secondary" href="/index">Back</a>
 
@@ -35,4 +63,5 @@
 <script
         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
