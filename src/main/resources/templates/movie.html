@@ -6,7 +6,6 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           rel="stylesheet">
-
 </head>
 <style>
     Body {
@@ -20,12 +19,33 @@
 
 
 </style>
+<style>
+h1 {
+
+-webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
+  font-size: 45px;
+  width:1000px;
+  word-wrap:break-word;
+}
+</style>
+
+<style>
+hr {
+  height: 2px;
+  background-color: #ffffff;
+  border: none;
+}
+</style>
 <body>
+<div th:replace="fragments/navs.html :: topnav"></div>
+
 
 <div class="d-flex justify-content-center" style="padding-top: 30px;">
     <div class="w3-container w3-red">
         <div class="card-body" style="margin-left:5em;margin-right:5em;">
-            <p style="color:white;font-size:300%;"><b><span th:text="${movie.movieTitle}"></span></b></p>
+            <p style="color:white;width:400px; word-wrap:break-word;"> <h1> <b><span th:text="${movie.movieTitle}"></span></b></h1></p>
 
             <div class="row">
                 <div class="column">
@@ -40,13 +60,15 @@
                             allowfullscreen></iframe>
                 </div>
             </div>
-            <p style="color:white;"><b>Genre:</b> <span th:text="${movie.movieGenre}"></span></p>
+
+            <hr style="color:white;">
+            <p style="color:LightGray;"><b>Genre:  </b> <span style="color:white;" th:text="${movie.movieGenre}"></span></p>
             <p style="color:white;width:900px; word-wrap:break-word;"><b>Cast:</b> <span th:text="${movie.cast}"></span></p>
-            <p style="color:white;"><b>Director:</b> <span th:text="${movie.director}"></span></p>
-            <p style="color:white;"><b>Year of Release:</b> <span th:text="${movie.yearRelease}"></span></p>
-            <p style="color:white;"><b>Length:</b> <span th:text="${movie.length}"></span></p>
-            <p style="color:white;width:900px; word-wrap:break-word;"><b>Description:</b> <span th:text="${movie.description}"></span></p>
-            <p style="color:white;"><b>Rating:</b> <span th:text="${movie.imdbRating}"></span> <span>&#11088;</span>
+            <p  style="color:white;"> <b>Director:  </b><span th:text="${movie.director}"></span></p>
+            <p style="color:white;"><b>Year of Release:  </b> <span th:text="${movie.yearRelease}"></span></p>
+            <p style="color:white;"><b>Length:  </b> <span th:text="${movie.length}"></span></p>
+            <p style="color:white;width:900px; word-wrap:break-word;"><b>Description:  </b> <span th:text="${movie.description}"></span></p>
+            <p style="color:white;"><b>Rating:  </b> <span th:text="${movie.imdbRating}"></span> <span>&#11088;</span>
 
             </p>
 
