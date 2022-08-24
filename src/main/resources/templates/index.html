@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Cinema Movies</title>
+    <title>Movies</title>
     <meta charset="utf-8">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -41,11 +41,6 @@
     <div sec:authorize="hasRole('ROLE_ADMIN')">
         <a th:href="@{/addNewMovie}" class="btn btn-primary btn-sm mb-3"> Add Movie </a>
     </div>
-
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-        <a th:href="@{/addNewCategory}" class="btn btn-primary btn-sm mb-3"> Add Category </a>
-    </div>
-
 
     <!--    <div class="my-4 card-columns">-->
 
